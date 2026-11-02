@@ -18,10 +18,10 @@ Most portfolio projects start with a dataset and work backward to a question. I 
 
 I also deliberately chose a dataset that's less commonly used in existing tutorials (Online Retail II instead of the more saturated Olist dataset), and chose to genuinely clean the data rather than use a pre cleaned version, so this project includes real data quality problems: mixed date formats, invalid row types, duplicate transactions, and missing customer identifiers. Solving these is a large part of what this project actually demonstrates.
 
-Business Problem
+# Business Problem
 The business wants to identify its most valuable customers and reduce churn among customers who are at risk of leaving. Leadership currently has no structured view of customer value, so retention efforts are reactive instead of targeted.
 
-Business Questions Answered
+# Business Questions Answered
 Who are our most valuable customers, and how much revenue do they actually contribute?
 Which customers have gone quiet and are at risk of churning?
 How does customer value and retention trend across time, by month, quarter, and year?
