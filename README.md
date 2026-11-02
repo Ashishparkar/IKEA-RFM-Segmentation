@@ -64,24 +64,3 @@ Page 1 — Home: project title, navigation to the two report pages, and a glossa
 Page 2 — Business Overview: total customers, total revenue, churn %, and average customer value as headline KPIs, with a revenue/customer toggle, segment breakdowns, and month/quarter/year trend views. Filterable by month, quarter, year, country, segment, and churn status.
 
 Page 3 — RFM Analysis: a segment performance summary table showing customer count, revenue, and average R/F/M score per segment, average customer value by segment, and churn % trended over time.
-
-Sample SQL: Handling Mixed Date Formats
-SELECT
-    Invoice, StockCode, Description, Quantity,
-    COALESCE(
-        TRY_CONVERT(datetime2, InvoiceDate, 120),
-        TRY_CONVERT(datetime2, InvoiceDate, 105)
-    ) AS InvoiceDate,
-    TRY_CONVERT(decimal(10,2), Price) AS Price,
-    Customer_ID, Country
-INTO dbo.RetailCombined
-FROM dbo.[Year 2009-2010];
-Sample Python: RFM Scoring
-rfm['R_Score'] = pd.qcut(rfm['Recency'], 5, labels=[5, 4, 3, 2, 1]).astype(int)
-rfm['F_Score'] = pd.qcut(rfm['Frequency'].rank(method='first'), 5, labels=[1, 2, 3, 4, 5]).astype(int)
-rfm['M_Score'] = pd.qcut(rfm['Monetary'], 5, labels=[1, 2, 3, 4, 5]).astype(int)
-How to Reproduce This Project
-Download the Online Retail II dataset from the UCI Machine Learning Repository
-Run the SQL scripts in 01_sql in order to recreate the cleaned RetailCleaned table
-Export RetailCleaned to CSV and run the notebook in 02_python to generate the segmented dataset
-Open the Power BI file in 03_powerbi and point it to the exported Excel file to refresh
